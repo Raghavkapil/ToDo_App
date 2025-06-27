@@ -1,6 +1,18 @@
 import React from 'react'
 
-const Navbar = () => {
+
+
+const Navbar = ({onReset}) => {
+
+  const handleReset = (e) => {
+    let ans = confirm("This will delete all your tasks!")
+    if(ans){
+     onReset()
+    }
+  }
+  
+  
+
   return (
    <nav className='flex justify-between bg-violet-600 text-white py-2'>
     <div className="logo">
@@ -11,8 +23,8 @@ const Navbar = () => {
         Home
       </li>
       
-      <li className='cursor-pointer hover:font-bold transition-all'>
-        Your Tasks
+      <li className='cursor-pointer hover:font-bold transition-all' onClick={handleReset}>
+        Reset 
       </li>
     </ul>
    </nav>
